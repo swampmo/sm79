@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+Ju 52 3/m FDM Config, by Detlef Faber
+
+ April 2006 
+
+faber@sol2500.net
+************************************************************************
+-->
+
+<PropertyList>
+ <sim>
+
+  <description>SM-79</description>
+  <author>Detlef Faber</author>
+  <status>beta</status>
+  <flight-model>jsb</flight-model>
+  <aero>sm79</aero>
+  <fuel-fraction>1.0</fuel-fraction>
+
+  <sound>
+   <path>Aircraft/ju52/dc3-sound.xml</path>
+  </sound>
+<!--
+  <submodels> 
+    <serviceable type="bool">true</serviceable>
+    <path>Aircraft/sm79/Models/submodels.xml</path>
+  </submodels>
+-->
+
+
+  <model>
+   <path>Aircraft/sm79/Models/SM-79.xml</path>
+   <livery>
+     <file type="string">Swiss</file>
+			<texture type="string">ju52-1.png</texture>
+			<texture-cowl type="string">ju52-1.png</texture-cowl>
+  </livery>
+  </model> 
+<rendering>
+<refl_correction type="string">-0.1</refl_correction>
+</rendering>
+
+  <virtual-cockpit archive="y">false</virtual-cockpit>
+  <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+  <view>
+   <internal archive="y">true</internal>
+   <config>
+     <!-- x/y/z == right/up/back -->
+     <x-offset-m archive="y">-0.3</x-offset-m>
+     <y-offset-m archive="y">1.1</y-offset-m>
+     <z-offset-m archive="y">-4.2</z-offset-m>
+     <pitch-offset-deg>-12</pitch-offset-deg>
+   </config>
+  </view>
+
+  <view n="1"> 
+        <config> 
+          <target-z-offset-m archive="y" type="double">-3.5</target-z-offset-m>
+        </config>
+      </view>
+
+  <view n="2"> 
+        <config> 
+          <target-z-offset-m archive="y" type="double">-3.5</target-z-offset-m>
+        </config>
+      </view>
+
+  <view n="3"> 
+        <config> 
+          <target-z-offset-m archive="y" type="double">-3.5</target-z-offset-m>
+        </config>
+      </view>
+
+  <view n="4"> 
+        <config> 
+          <target-z-offset-m archive="y" type="double">-3.5</target-z-offset-m>
+        </config>
+      </view>
+
+  <view n="5"> 
+        <config> 
+          <target-z-offset-m archive="y" type="double">-3.5</target-z-offset-m>
+        </config>
+      </view>
+
+  <view n="6"> 
+        <config> 
+          <target-z-offset-m archive="y" type="double">-3.5</target-z-offset-m>
+        </config>
+      </view>
+
+  <chase-distance-m type="double" archive="y">-25.0</chase-distance-m>
+
+  <help>
+   <title>Savoia Marchetti SM-79</title>
+   <key>
+      <name>Ctrl-l</name>
+      <desc>toggle Tailwheel Lock</desc>
+    </key>
+    <key>
+      <name>C</name>
+      <desc>toggle Passenger Door</desc>
+    </key>
+    <key>
+      <name>D</name>
+      <desc>toggle Front Access Door</desc>
+    </key>
+    <key>
+      <name>j</name>
+      <desc>Jump Signal to parachuters</desc>
+      </key>
+    <text>---Take Off---
+Flaps down 20 degrees, Trim slightly nose down. Take off at 1.4 ata (Full Throttle), Keep Tail down until Aircraft flies itself off. Climb at 1.3 ata, Cruise with 1.2 ata.
+---Landing---
+lower Flaps and Gear under 200 km/h. Approach Speed is 150 km/h or less. Speed at Treshold should be 100 - 110 km/h. If too fast the Aircraft is likly to lift off again. In that case try a 2-wheel landing.
+Don't forget to release Tailwheel lock (Ctrl-l) before taxiing off the Runway.</text>
+  </help>
+	<menubar>
+		<default>
+			<menu n="10">
+				<label>Ju-52</label>
+					<enabled type="bool">true</enabled>
+<!--
+					<item>
+						<label>Magically start engine</label>
+						<binding>
+							<command>nasal</command>
+							<script>fw190.magicstart();</script>
+						</binding>
+					</item>
+-->
+					<item>
+						<label>Select Livery</label>
+              <binding>
+                <command>nasal</command>
+                <script>aircraft.livery.dialog.toggle()</script>
+              </binding>
+					</item>
+
+			</menu>
+		</default>
+	</menubar>
+  <weight n="0">
+      <name>Cargo</name>
+      <weight-lb>0</weight-lb>
+      <selected>none</selected>
+      <opt>
+					<name>none</name>
+					<lbs>0</lbs>
+			</opt>
+     	<opt>
+					<name>2500 lbs Load</name>
+      		<lbs>2500.0</lbs>
+      </opt>
+      <opt>
+					<name>5000 lbs Load</name>
+      		<lbs>5000.0</lbs>
+      </opt>
+      <opt>
+					<name>7500 lbs Load</name>
+      		<lbs>7500.0</lbs>
+      </opt>
+      <opt>
+					<name>10000 lbs Load</name>
+      		<lbs>10000.0</lbs>
+      </opt>
+  </weight>
+
+ </sim>
+
+ <controls>
+
+  <jump-signal type="bool">false</jump-signal>
+  <engines>
+   <engine n="0">
+    <magnetos>3</magnetos>
+   </engine>
+   <engine n="1">
+    <magnetos>3</magnetos>
+   </engine>
+    <engine n="2">
+    <magnetos>3</magnetos>
+   </engine>
+  </engines>
+   <gear>
+			<bellybrake type="int">1</bellybrake>
+			<gear n="0">
+					<gear-down type="bool">true</gear-down>
+			</gear>
+			<gear n="1">
+					<gear-down type="bool">true</gear-down>
+			</gear>
+			<gear n="2">
+					<gear-down type="bool">0</gear-down>
+			</gear>
+      <tailwheel-lock>true</tailwheel-lock>
+   </gear>
+ </controls>
+
+ <engines>
+  <engine>
+   <rpm type="double">700</rpm>
+  </engine>
+  <engine>
+   <rpm type="double">700</rpm>
+  </engine>
+  <engine>
+   <rpm type="double">700</rpm>
+  </engine>
+ </engines>
+  
+ <autopilot>
+   <config>
+     <min-climb-speed-kt type="float">100.0</min-climb-speed-kt>
+     <best-climb-speed-kt type="float">120.0</best-climb-speed-kt>
+     <target-climb-rate-fpm type="float">1000.0</target-climb-rate-fpm>
+     <target-descent-rate-fpm type="float">1000.0</target-descent-rate-fpm>
+     <elevator-adj-factor type="float">6000.0</elevator-adj-factor>
+     <integral-contribution type="float">0.005</integral-contribution>
+     <zero-pitch-throttle type="float">0.45</zero-pitch-throttle>
+     <zero-pitch-trim-full-throttle type="float">0.001</zero-pitch-trim-full-throttle>
+   </config>
+ </autopilot>
+
+ <input>
+   <keyboard>
+      <key n="12"> 
+          <name>Ctrl-L</name>
+          <desc>Toggle Tailwheel Lock.</desc>
+          <binding> 
+            <command>property-toggle</command>
+            <property>controls/gear/tailwheel-lock</property>
+          </binding>
+      </key>
+      <key n="67">
+        <name>C</name>
+        <desc>Toggle Passenger-Door</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>ju52.toggle_ldoor()</script>
+        </binding>
+      </key>
+      <key n="68">
+        <name>D</name>
+        <desc>Toggle Front-Door</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>ju52.toggle_rdoor()</script>
+        </binding>
+      </key>
+  <key n="106">
+    <name>j</name>
+    <desc>jumpers</desc>
+    <binding>
+     <command>property-assign</command>
+     <property>controls/jump-signal</property>
+     <value>true</value>
+    </binding>
+   </key>
+
+   </keyboard>
+
+
+ </input>
+
+  <nasal>
+   <ju52>
+     <file>Aircraft/ju52/Nasal/ju52.nas</file>
+   </ju52>
+		<failure>
+			<file>Aircraft/sm79/Nasal/failure.nas</file>
+		</failure>
+  </nasal>
+</PropertyList>
